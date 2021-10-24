@@ -10,3 +10,5 @@ MacOS
 Iphone 
 
 Create Emulated Device
+Open Xcode and click 'Xcode'. Click 'Open Developer Tool'. Click 'Simulator'.
+
