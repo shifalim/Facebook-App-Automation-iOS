@@ -25,12 +25,12 @@ Brew
 First launch Xcode simulator -> Appium Server -> Appium Inspector 
 In Appium Inspector use the following capabilities: 
 
-{
-  "platformName": "iOS",
-  "appium:deviceName": "iPhone 12 Pro Max",
-  "appium:automationName": "XCUITest",
-  "appium:platformVersion": "14.5",
-  "browserName": "Safari"
-}
+> {
+ > "platformName": "iOS",
+ > "appium:deviceName": "iPhone 12 Pro Max",
+  >"appium:automationName": "XCUITest",
+  >"appium:platformVersion": "14.5",
+  >"browserName": "Safari"
+>}
 
 Capabilities may change depending on the device name which will be displayed on the top of the Simulator and platform Version you are using. Both of these can be located on the top of the Simulator. 
