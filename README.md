@@ -13,14 +13,14 @@ Iphone
 Open Xcode and click 'Xcode'. Click 'Open Developer Tool'. Click 'Simulator'.
 
 ## Installation Required 
-Xcode
-Appium GUI 
-Appium Inspector
-Visual Studio Code
-Node JS
-Jest 
-Brew 
-Webdriverio
+- Xcode
+- Appium GUI 
+- Appium Inspector
+- Visual Studio Code
+- Node JS
+- Jest 
+- Brew 
+- Webdriverio
 
 ## Setting up Appium Inspector 
 First launch Xcode simulator -> Appium Server -> Appium Inspector 
@@ -37,4 +37,4 @@ In Appium Inspector use the following capabilities:
 Capabilities may change depending on the device name which will be displayed on the top of the Simulator and platform Version you are using. Both of these can be located on the top of the Simulator. Through this you will start session and Safari will launch on Appium. 
 
 ## Important Links
-1. [Jest](https://jestjs.io)
+-  [Jest](https://jestjs.io)
