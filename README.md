@@ -37,6 +37,8 @@ In Appium Inspector use the following capabilities:
 Capabilities may change depending on the device name which will be displayed on the top of the Simulator and platform Version you are using. Both of these can be located on the top of the Simulator. Through this you will start session and Safari will launch on Appium. 
 
 ## Important Links
+-  Install the LTS Version: [Node.js](https://nodejs.org/en/)
+-  [Homebrew](https://brew.sh)
 -  [Jest](https://jestjs.io)
 - [Installing Appium](https://www.youtube.com/watch?v=ElD5YrKcuRc)
 - [Installing Xcode](https://www.youtube.com/watch?v=W8jz8Csuzx4)
