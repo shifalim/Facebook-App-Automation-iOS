@@ -20,6 +20,7 @@ Visual Studio Code
 Node JS
 Jest 
 Brew 
+Webdriverio
 
 ## Setting up Appium Inspector 
 First launch Xcode simulator -> Appium Server -> Appium Inspector 
@@ -35,4 +36,5 @@ In Appium Inspector use the following capabilities:
 ```
 Capabilities may change depending on the device name which will be displayed on the top of the Simulator and platform Version you are using. Both of these can be located on the top of the Simulator. Through this you will start session and Safari will launch on Appium. 
 
-##Appium Inspector Elements
+##Important Links
+[Jest](https://jestjs.io)
