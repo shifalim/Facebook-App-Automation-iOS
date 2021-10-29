@@ -38,6 +38,6 @@ Capabilities may change depending on the device name which will be displayed on 
 
 ## Important Links
 -  [Jest](https://jestjs.io)
-- [Installing Appium] (https://www.youtube.com/watch?v=ElD5YrKcuRc)
-- [Installing Xcode] (https://www.youtube.com/watch?v=W8jz8Csuzx4)
-- [Running Safari on Appium Inspector] (https://www.youtube.com/watch?v=dDHJfRG0VBo)
+- [Installing Appium](https://www.youtube.com/watch?v=ElD5YrKcuRc)
+- [Installing Xcode](https://www.youtube.com/watch?v=W8jz8Csuzx4)
+- [Running Safari on Appium Inspector](https://www.youtube.com/watch?v=dDHJfRG0VBo)
