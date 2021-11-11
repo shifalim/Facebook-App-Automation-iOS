@@ -34,7 +34,7 @@ In Appium Inspector use the following capabilities:
 ```
 Capabilities may change depending on the device name which will be displayed on the top of the Simulator and platform Version you are using. Both of these can be located on the top of the Simulator. Through this you will start session and Safari will launch on Appium. 
 
-## Testing Incorrect Password and Username 
+## Testing if Facebook email is in their database 
 ```
 //This tests if Facebook has the email entered in their database
 test('No Account Found', async() =>{
