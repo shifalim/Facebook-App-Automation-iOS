@@ -284,9 +284,7 @@ test('Facebook post successfull', async() =>{
    const confirmed = await client.$(PUBLISHED_CONFIRMATION).isDisplayed();
    expect(confirmed).toBe(true);
 });
-```
-## 
-```
+
 
 ## Important Links
 -  Install the LTS Version: [Node.js](https://nodejs.org/en/)
