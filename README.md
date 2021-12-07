@@ -1,5 +1,5 @@
 # Facebook-App-Automation-IOS
- This code will test Facebooks apps features on Android using an iOS device. This will use Jest for the testing. 
+ This code will test Facebooks apps features on Android using an iOS device. This will use Jest for the testing. For testing we will be able to test it through the Safari application in the mobile. 
 
 ## Setup Enviromental Variables
 
