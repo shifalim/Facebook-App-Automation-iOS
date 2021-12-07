@@ -34,6 +34,33 @@ In Appium Inspector use the following capabilities:
 ```
 Capabilities may change depending on the device name which will be displayed on the top of the Simulator and platform Version you are using. Both of these can be located on the top of the Simulator. Through this you will start session and Safari will launch on Appium. 
 
+## Login Test
+```
+test('Successfull Login', async() =>{
+   await(client.pause(1000));
+   //Declare Values
+   const NOT_NOW_BTN = '~Not Now';
+   const SKIP_BTN = '~Skip';
+   const PROFILE = '~Profile';
+ 
+   await client.$(EMAIL_TXT_FIELD).setValue(CORRECT_EMAIL);
+   await client.$(PASSWORD_TXT_FIELD).setValue(CORRECT_PASS);
+   await client.$(LOGIN_BTN).click();
+   await(client.pause(300));
+
+   if (await client.$(NOT_NOW_BTN).isDisplayed()){
+       await client.$(NOT_NOW_BTN).click();
+   }
+ 
+   if (await client.$(SKIP_BTN).isDisplayed()){
+       await client.$(SKIP_BTN).click();
+   }
+ 
+   await(client.pause(2000));
+   const confirmed = await client.$(PROFILE).isDisplayed();
+   expect(confirmed).toBe(true);
+});
+```
 ## Testing if Facebook email is in their database 
 ```
 //This tests if Facebook has the email entered in their database
@@ -72,6 +99,9 @@ test('Facebook post successfull', async() =>{
    expect(confirmed).toBe(true);
 });
 ```
+## 
+```
+
 ## Important Links
 -  Install the LTS Version: [Node.js](https://nodejs.org/en/)
 -  [Homebrew](https://brew.sh)
