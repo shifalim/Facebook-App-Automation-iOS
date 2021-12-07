@@ -247,43 +247,6 @@ test('Logged out', async() =>{
 
 });
 ```
-## Testing if Facebook email is in their database 
-
-//This tests if Facebook has the email entered in their database
-test('No Account Found', async() =>{
-   //Declare Values
-   const WRONG_ACCOUNT = "~Need help finding your account?";
-
-   //declare element selector values
-   await client.$(EMAIL_TXT_FIELD).setValue('fakemailtester333@gmail.com');
-   await client.$(PASSWORD_TXT_FIELD).setValue('fakepassword333!');
-   await client.$(LOGIN_BTN).click();
-
-   await(client.pause(4000));
-
-   const confirmed = await client.$(WRONG_ACCOUNT).getText();
-   expect(confirmed).toBe('Need help finding your account?');
-});
-```
-## Testing Post
-```
-//This tests posting on Facebook
-test('Facebook post successfull', async() =>{
-   await(client.pause(1000));
-   //Declare Values
-   const TEXT_FIELD = '(//XCUIElementTypeButton[@name="What\'s on your mind?"])[2]';
-   const INPUT_FIELD = '//XCUIElementTypeStaticText[@name="What\'s on your mind?"]'
-   const POST_BTN = '(//XCUIElementTypeButton[@name="Post"])[2]';
-   const PUBLISHED_CONFIRMATION = '//XCUIElementTypeStaticText[@name="Your post is now published."]';
- 
-   await client.$(TEXT_FIELD).click();
-   await client.$(INPUT_FIELD).setValue('Test Post4');
-   await client.$(POST_BTN).click();
- 
-   await(client.pause(500));
-   const confirmed = await client.$(PUBLISHED_CONFIRMATION).isDisplayed();
-   expect(confirmed).toBe(true);
-});
 
 
 ## Important Links
