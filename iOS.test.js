@@ -71,7 +71,7 @@ test('Connected', async()=>{
    expect(Object.values(client)[1]['bundleId']).toBe('com.apple.mobilesafari');
 });
 
-//This checks if the connection was successful
+//1. This checks if the connection was successful
 test('Connected To Facebooks Website', async() =>{
    //declare element selector values
    await client.$(URL_BAR).click();
@@ -87,7 +87,7 @@ test('Connected To Facebooks Website', async() =>{
       Also, all tests after login are written to assume the user is already logged in.
    ============================================================================================= */
 /* NEGATIVE LOGIN TESTS  */
-//1. This tests entering an email that is not in Facebook's database
+//2. This tests entering an email that is not in Facebook's database
 test('No Account Found', async() =>{
    //Declare Values
    const WRONG_ACCOUNT = "~Need help finding your account?";
@@ -103,7 +103,7 @@ test('No Account Found', async() =>{
    expect(confirmed).toBe('Need help finding your account?');
 });
 
-//2. This tests entering a correct email but incorrect password
+//3. This tests entering a correct email but incorrect password
 test('Incorrect Password', async() =>{
    //Declare Values
    const INCORRECT_PASS = "~Forgot Password | Can't Log In | Facebook";
@@ -122,7 +122,7 @@ expect(confirmed).toBe(true);
  
 
 //Positive LOGIN TEST
-//This tests if the login was successful
+//4. This tests if the login was successful
 test('Successfull Login', async() =>{
    await(client.pause(1000));
    //Declare Values
@@ -150,9 +150,9 @@ test('Successfull Login', async() =>{
 
 
 /* POST TESTS */
-//For tests 1-3 (text, tagging, photo), the user should already be on their homepage
+//For tests 5-7 (text, tagging, photo), the user should already be on their homepage
 
-//1. TEXT: This tests posting a text post on Facebook
+//5. TEXT: This tests posting a text post on Facebook
 test('Facebook post successfull', async() =>{
    await(client.pause(1000));
    //Declare Values
@@ -171,7 +171,7 @@ test('Facebook post successfull', async() =>{
    expect(confirmed).toBe(true);
 });
 
-//2. TAGGING: This tests tagging a friend in a text post
+//6. TAGGING: This tests tagging a friend in a text post
 test('Successfully Tagged a Friend', async() =>{
    await(client.pause(1000));
    //Declare Values
@@ -197,7 +197,7 @@ test('Successfully Tagged a Friend', async() =>{
 });
 
 
-//3. PHOTO: This tests posting a picture on Facebook
+//7. PHOTO: This tests posting a picture on Facebook
 test('Facebook post one picture successfull', async() =>{
    await(client.pause(1000));
    //Declare Values
@@ -228,7 +228,7 @@ test('Facebook post one picture successfull', async() =>{
 });
 
 
-//4. This tests liking a post and checking that 2 previously created comments are correctly appearing
+//8. This tests liking a post and checking that 2 previously created comments are correctly appearing
 test('view likes/comments', async() =>{
    await(client.pause(1000));
    //Declare Values
@@ -245,7 +245,7 @@ test('view likes/comments', async() =>{
 });
 
 
-//5. LIKING: This is a slightly more thorough like test by liking a post and checking the like counts before and after the user likes it
+//9. LIKING: This is a slightly more thorough like test by liking a post and checking the like counts before and after the user likes it
 test('Successfully Liked', async() =>{
    const LIKE_BUTTON = '//XCUIElementTypeSwitch[@name="Like"]';
    const LIKE_TEXT = "~Critter Goth and Lizzie Na";
@@ -276,7 +276,7 @@ test('Successfully Liked', async() =>{
 
 
 /* FRIEND REQUESTS (Note that these are not end-to-end cases) */
-//1. This test is for accepting a friend Request
+//10. This test is for accepting a friend Request
 //Outside of/before the test is run, Lizzie Na's friend request is sent ahead of time. User is logged in as Sarah Lee
 test('Friend Request', async() =>{
    await(client.pause(1000));
@@ -294,7 +294,30 @@ test('Friend Request', async() =>{
    expect(confirmed).toBe(true);
 });
 
-//2. This tests from the accepted friend's POV that the accepted request went through
+
+//11. This test is for declining a friend Request
+//Outside of/before the test is run, Shifali Mengi's friend request is sent ahead of time. User is logged in as Sarah Lee
+test('Declining Friend Request', async() =>{
+   await(client.pause(1000));
+   //Declare Values
+   const FRIEND_REQUEST = '//XCUIElementTypeStaticText[@name="FRIEND REQUESTS"]';
+   const DECLINE = "~Delete Shifali Mengi's friend request";
+   const FRIENDS = "~Friends";
+   const FRIEND_ACCEPTED = '//XCUIElementTypeOther[@name="Shifali Mengi"]';
+   
+   await client.$(URL_BAR).click();
+   await client.$(URL_BAR).setValue('facebook.com' + "\n");
+   await(client.pause(3000));
+   await client.$(FRIEND_REQUEST).click();
+   await client.$(DECLINE).click();
+   await client.$(FRIENDS).click();
+   await(client.pause(2000));
+   const confirmed = await client.$(FRIEND_ACCEPTED).isDisplayed();
+   expect(confirmed).toBe(false);
+});
+
+
+//12. This tests from the accepted friend's POV that the accepted request went through
 //User most be logged into Lizzie Na's facebook account before running this test
 test('End to end user case for Accepting', async() =>{
    await(client.pause(1000));
@@ -318,30 +341,7 @@ test('End to end user case for Accepting', async() =>{
    expect(confirmed).toBe(true);
 });
 
-
-//3. This test is for declining a friend Request
-//Outside of/before the test is run, Shifali Mengi's friend request is sent ahead of time. User is logged in as Sarah Lee
-test('Declining Friend Request', async() =>{
-   await(client.pause(1000));
-   //Declare Values
-   const FRIEND_REQUEST = '//XCUIElementTypeStaticText[@name="FRIEND REQUESTS"]';
-   const DECLINE = "~Delete Shifali Mengi's friend request";
-   const FRIENDS = "~Friends";
-   const FRIEND_ACCEPTED = '//XCUIElementTypeOther[@name="Shifali Mengi"]';
-   
-   await client.$(URL_BAR).click();
-   await client.$(URL_BAR).setValue('facebook.com' + "\n");
-   await(client.pause(3000));
-   await client.$(FRIEND_REQUEST).click();
-   await client.$(DECLINE).click();
-   await client.$(FRIENDS).click();
-   await(client.pause(2000));
-   const confirmed = await client.$(FRIEND_ACCEPTED).isDisplayed();
-   expect(confirmed).toBe(false);
-});
-
-
-//4. This tests from the declined friend's POV that the request was properly declined
+//13. This tests from the declined friend's POV that the request was properly declined
 //User most be logged into Shifali Mengi's facebook account before running this test
 test('Declining Shifali Mengi end user', async() => {
    await(client.pause(1000));
@@ -359,7 +359,7 @@ test('Declining Shifali Mengi end user', async() => {
 });
 /* =============================================================================== */
 
-//This tests logging out
+//14. This tests logging out
 test('Logged out', async() =>{
    const MAIN_MENU = "~Main Menu"
    const LOG_OUT = '(//XCUIElementTypeLink[@name="Log Out"])[1]';
