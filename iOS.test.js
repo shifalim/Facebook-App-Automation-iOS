@@ -86,7 +86,7 @@ test('Connected To Facebooks Website', async() =>{
       out because many tests have different starting/ending points, which can cause errors.
       Also, all tests after login are written to assume the user is already logged in.
    ============================================================================================= */
-/* 2 NEGATIVE LOGIN TESTS  */
+/* NEGATIVE LOGIN TESTS  */
 //1. This tests entering an email that is not in Facebook's database
 test('No Account Found', async() =>{
    //Declare Values
